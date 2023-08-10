@@ -12,7 +12,7 @@ exports.addDestination = async (req, res) => {
 exports.updateDestination = async (req, res) => {
     try {
         await Destination.update({ name: req.body.destination }, { where: { id: req.params.id } });
-        res.json({ message: "Destination updated!" });
+        res.json({ message: "Destination updated" });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -21,7 +21,7 @@ exports.updateDestination = async (req, res) => {
 exports.deleteDestination = async (req, res) => {
     try {
         await Destination.destroy({ where: { id: req.params.id } });
-        res.json({ message: "Destination deleted!" });
+        res.json({ message: "Destination deleted" });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
