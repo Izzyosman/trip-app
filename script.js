@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function getDestinations() {
-      fetch("api/vacation")
-      .then(response => response.json())
-      .then(data => {
-          data.forEach(item => {
-              addDestinationToContent(item.id, item.destination);
-          });
-      })
-      .catch(error => console.error("Error:", error));
+    fetch("api/vacation")
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(item => {
+            addDestinationToContent(item.id, item.name); // Changed item.destination to item.name
+        });
+    })
+    .catch(error => console.error("Error:", error));
   }
 
   function addDestinationToContent(id, destination) {
@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       contentDiv.appendChild(destinationDiv);
   }
 
+  // Event listener for the form submission
   const form = document.getElementById("vacation-form");
   form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -91,8 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
       destinationInput.value = ""; // clear the input after submitting
   });
 
+  // Fetch and display the existing destinations when the page loads
   getDestinations();
 
 });
-
-  
