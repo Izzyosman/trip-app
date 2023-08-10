@@ -2,24 +2,24 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2eedf;  /* off-white color */
+  background-color: #f2eedf;
   padding: 10px;
 }
 
 body {
-  padding-bottom: 60px;  /* This should be roughly the height of your footer */
+  padding-bottom: 60px;
 }
 
 
 nav a {
   margin: 0 15px;
   text-decoration: none;
-  color: #03C6C4;  /* tropical teal */
+  color: #03C6C4;
   padding: 5px 0; 
 }
 
 nav a:hover {
-  text-decoration: underline;  /* underline on hover for a subtle effect */
+  text-decoration: underline; 
 }
 
 .container {
@@ -31,13 +31,11 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-  /* Stacks the forms and content vertically */
   .container div, form {
-      flex: 1 0 100%;  /* take the full width */
-      margin: 10px 0;  /* adjust margin for vertical stacking */
+      flex: 1 0 100%; 
+      margin: 10px 0;
   }
 
-  /* Adjust nav bar for smaller screens */
   nav a {
       padding: 10px;
       margin: 0 5px; 
@@ -45,10 +43,9 @@ nav a:hover {
 }
 
 img {
-  /* max-width: 100%; */
   height: auto;
-  margin-top: 100px;  /* adjust this value to move it closer or further from content above */
-  margin-bottom: 30px; /* distance from the fixed footer or any content below */
+  margin-top: 100px; 
+  margin-bottom: 30px;
 }
 
 .container div,
@@ -59,8 +56,8 @@ form {
 
 .submit-btn {
   display: block;
-  background-color: #03C6C4;  /* tropical teal */
-  color: #FAFAF8;  /* off-white for text contrast */
+  background-color: #03C6C4;
+  color: #FAFAF8;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -69,13 +66,13 @@ form {
 }
 
 .submit-btn:hover {
-  background-color: #02A5A3;  /* slightly darker shade for hover effect */
+  background-color: #02A5A3;
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #f2eedf;  /* off-white color */
+  background-color: #f2eedf;
   color: white;
   position: fixed;
   width: 100%;
@@ -88,13 +85,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 80px); /* viewport height minus navbar and footer heights */
+  height: calc(100vh - 80px);
   text-align: center;
-  color: #333; /* making text a bit darker for better readability */
-  font-size: 20px; /* increasing font size for emphasis */
+  color: #333;
+  font-size: 20px;
 }
-
-/* Existing styles ... */
 
 .destination-item {
   display: flex;
@@ -117,11 +112,11 @@ footer {
 }
 
 .update-btn {
-  background-color: #FFA07A; /* light salmon */
+  background-color: #FFA07A;
 }
 
 .delete-btn {
-  background-color: #FF6347; /* tomato */
+  background-color: #FF6347;
 }
 
 .destination-btn:hover {
