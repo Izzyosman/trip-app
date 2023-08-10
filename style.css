@@ -1,9 +1,8 @@
-/* Some basic styling for demonstration purposes */
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f6a6c5;  /* off-white color */
+  background-color: #f2eedf;  /* off-white color */
   padding: 10px;
 }
 
@@ -15,8 +14,8 @@ body {
 nav a {
   margin: 0 15px;
   text-decoration: none;
-  color: #080909;  /* tropical teal */
-  padding: 10px 0; 
+  color: #03C6C4;  /* tropical teal */
+  padding: 5px 0; 
 }
 
 nav a:hover {
@@ -60,7 +59,7 @@ form {
 
 .submit-btn {
   display: block;
-  background-color: #e05b94;  /* tropical teal */
+  background-color: #03C6C4;  /* tropical teal */
   color: #FAFAF8;  /* off-white for text contrast */
   padding: 10px 20px;
   border: none;
@@ -76,7 +75,7 @@ form {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #f6a6c5;  /* off-white color */
+  background-color: #f2eedf;  /* off-white color */
   color: white;
   position: fixed;
   width: 100%;
@@ -95,71 +94,36 @@ footer {
   font-size: 20px; /* increasing font size for emphasis */
 }
 
+/* Existing styles ... */
 
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
-
-* {
-    box-sizing: border-box;
+.destination-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
-body {
-    background-color: rgb(229, 191, 208);
-    color: black;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    min-height: 100vh;
+.destination-btn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-h1 {
-    color: rgb(100, 18, 182);
-    font-size: 10rem;
-    text-align: center;
-    opacity: 0.4;
+.destination {
+  padding-top: 20px;
 }
 
-form {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
-    width: 400px;
+.update-btn {
+  background-color: #FFA07A; /* light salmon */
 }
 
-.input {
-    border: none;
-    color: #444;
-    font-size: 2rem;
-    padding: 1rem 2rem;
-    display: block;
-    width: 100%;
+.delete-btn {
+  background-color: #FF6347; /* tomato */
 }
 
-.input::placeholder {
-    color: #e199b7;
+.destination-btn:hover {
+  opacity: 0.8;
 }
-
-.todos {
-    background-color: pink;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
-
-.todos li {
-    border-top: 1px solid #e199b7;
-    cursor: pointer;
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-}
-
-.todos li.completed {
-    color: black;
-    text-decoration: line-through;
-}
-
-small {
-    color: black;
-    margin-top: 3rem;
-    text-align: center;
-} */
