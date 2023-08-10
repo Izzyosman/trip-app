@@ -7,7 +7,7 @@ async function seedDatabase() {
         for (const destination of destinations) {
             await Destination.create({ name: destination });
         }
-        console.log('Database seeded!');
+        console.log('Database seeded');
         process.exit();
     } catch (error) {
         console.error('Error seeding database:', error);
@@ -17,6 +17,6 @@ async function seedDatabase() {
 // Connect to the database and seed
 sequelize.authenticate()
     .then(() => {
-        console.log('Database connected!');
+        console.log('Database connected');
         seedDatabase();
     });
