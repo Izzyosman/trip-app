@@ -1,0 +1,165 @@
+/* Some basic styling for demonstration purposes */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2eedf;  /* off-white color */
+  padding: 10px;
+}
+
+body {
+  padding-bottom: 60px;  /* This should be roughly the height of your footer */
+}
+
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #03C6C4;  /* tropical teal */
+  padding: 5px 0; 
+}
+
+nav a:hover {
+  text-decoration: underline;  /* underline on hover for a subtle effect */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  /* Stacks the forms and content vertically */
+  .container div, form {
+      flex: 1 0 100%;  /* take the full width */
+      margin: 10px 0;  /* adjust margin for vertical stacking */
+  }
+
+  /* Adjust nav bar for smaller screens */
+  nav a {
+      padding: 10px;
+      margin: 0 5px; 
+  }
+}
+
+img {
+  /* max-width: 100%; */
+  height: auto;
+  margin-top: 100px;  /* adjust this value to move it closer or further from content above */
+  margin-bottom: 30px; /* distance from the fixed footer or any content below */
+}
+
+.container div,
+form {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.submit-btn {
+  display: block;
+  background-color: #03C6C4;  /* tropical teal */
+  color: #FAFAF8;  /* off-white for text contrast */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #02A5A3;  /* slightly darker shade for hover effect */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f2eedf;  /* off-white color */
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px); /* viewport height minus navbar and footer heights */
+  text-align: center;
+  color: #333; /* making text a bit darker for better readability */
+  font-size: 20px; /* increasing font size for emphasis */
+}
+
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(229, 191, 208);
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+h1 {
+    color: rgb(100, 18, 182);
+    font-size: 10rem;
+    text-align: center;
+    opacity: 0.4;
+}
+
+form {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 400px;
+}
+
+.input {
+    border: none;
+    color: #444;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    display: block;
+    width: 100%;
+}
+
+.input::placeholder {
+    color: #e199b7;
+}
+
+.todos {
+    background-color: pink;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.todos li {
+    border-top: 1px solid #e199b7;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+.todos li.completed {
+    color: black;
+    text-decoration: line-through;
+}
+
+small {
+    color: black;
+    margin-top: 3rem;
+    text-align: center;
+} */
