@@ -14,7 +14,6 @@ async function seedDatabase() {
     }
 }
 
-// Connect to the database and seed
 sequelize.authenticate()
     .then(() => {
         console.log('Database connected');
