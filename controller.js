@@ -1,4 +1,4 @@
-const { Destination } = require('./models');
+const { Destination } = require('./database/models.js');
 
 exports.addDestination = async (req, res) => {
     try {
