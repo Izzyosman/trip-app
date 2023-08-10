@@ -3,7 +3,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f2eedf;  /* off-white color */
+  background-color: #f6a6c5;  /* off-white color */
   padding: 10px;
 }
 
@@ -15,8 +15,8 @@ body {
 nav a {
   margin: 0 15px;
   text-decoration: none;
-  color: #03C6C4;  /* tropical teal */
-  padding: 5px 0; 
+  color: #080909;  /* tropical teal */
+  padding: 10px 0; 
 }
 
 nav a:hover {
@@ -60,7 +60,7 @@ form {
 
 .submit-btn {
   display: block;
-  background-color: #03C6C4;  /* tropical teal */
+  background-color: #e05b94;  /* tropical teal */
   color: #FAFAF8;  /* off-white for text contrast */
   padding: 10px 20px;
   border: none;
@@ -76,7 +76,7 @@ form {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #f2eedf;  /* off-white color */
+  background-color: #f6a6c5;  /* off-white color */
   color: white;
   position: fixed;
   width: 100%;
