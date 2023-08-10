@@ -54,18 +54,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const destinationDiv = document.createElement("div");
       destinationDiv.id = `destination-${id}`;
+      destinationDiv.className = 'destination';
       
       const destinationText = document.createElement("span");
       destinationText.textContent = destination;
       
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "Delete";
+      deleteButton.className = "destination-btn delete-btn";
       deleteButton.addEventListener("click", function () {
           deleteDestination(id);
       });
 
       const updateButton = document.createElement("button");
       updateButton.textContent = "Update";
+      updateButton.className = "destination-btn update-btn";
       updateButton.addEventListener("click", function () {
           const newDestination = prompt("Update the destination:", destination);
           if (newDestination) {
@@ -80,7 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
       contentDiv.appendChild(destinationDiv);
   }
 
-  // Event listener for the form submission
   const form = document.getElementById("vacation-form");
   form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -89,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
       destinationInput.value = ""; // clear the input after submitting
   });
 
-  // Fetch and display the existing destinations when the page loads
   getDestinations();
 
 });
