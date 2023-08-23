@@ -1,11 +1,16 @@
+require('dotenv').config();
+const cors = require('cors') 
+const {SERVER_PORT} = process.env
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const controller = require('./controller.js');
-const { sequelize } = require('./database/models.js');
+const { sequelize } = require('./databases/models.js');
+
+const {seed, addDestination, updateDestination, deleteDestination, getDestinations} = require('./controller.js')
 
 const app = express();
-const PORT = 3000;
+const PORT = 3306;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
