@@ -1,6 +1,6 @@
 require('dotenv').config();
-const cors = require('cors') 
-const {SERVER_PORT} = process.env
+const cors = require('cors'); 
+const {SERVER_PORT} = process.env;
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -11,6 +11,8 @@ const {seed, addDestination, updateDestination, deleteDestination, getDestinatio
 
 const app = express();
 const PORT = 3306;
+
+app.use(cors()); 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,9 +45,13 @@ app.delete('/api/vacation/:id', controller.deleteDestination);
 app.get('/api/vacation', controller.getDestinations);
 
 app.listen(PORT, async () => {
-    console.log(`Server running on PORT:${PORT}/`);
+    console.log(`Server running on PORT:${SERVER_PORT}/`);
 
+    try {
     await sequelize.authenticate();
     console.log('Db connected');
     await sequelize.sync({ alter: true });
+    } catch (error) {
+      console.error('Error connecting to the database:', error);
+    }
 });
