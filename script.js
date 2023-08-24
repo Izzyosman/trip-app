@@ -1,98 +1,106 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-  function postDestination(destination) {
-      fetch("api/vacation", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ destination }),
-      })
-      .then(response => response.json())
-      .then(data => {
-          addDestinationToContent(data.id, destination);
-      })
-      .catch(error => console.error("Error:", error));
-  }
-
-  function updateDestination(id, newDestination) {
-      fetch(`api/vacation/${id}`, {
-          method: "PUT",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ destination: newDestination }),
-      })
-      .catch(error => console.error("Error:", error));
-  }
-
-  function deleteDestination(id) {
-      fetch(`api/vacation/${id}`, {
-          method: "DELETE",
-      })
-      .then(() => {
-          // Remove the element from the page
-          const elementToDelete = document.getElementById(`destination-${id}`);
-          elementToDelete.remove();
-      })
-      .catch(error => console.error("Error:", error));
-  }
-
-  function getDestinations() {
-    fetch("api/vacation")
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(item => {
-            addDestinationToContent(item.id, item.name); // Changed item.destination to item.name
+    function parseJSON(response) {
+        return new Promise((resolve, reject) => {
+            if (!response.ok) {
+                response.text().then(text => reject(new Error(text)));
+            } else {
+                response.json().then(data => resolve(data)).catch(() => reject(new Error('Failed to parse JSON')));
+            }
         });
-    })
-    .catch(error => console.error("Error:", error));
-  }
-
-  function addDestinationToContent(id, destination) {
-      const contentDiv = document.getElementById("itinerary-content");
-
-      const destinationDiv = document.createElement("div");
-      destinationDiv.id = `destination-${id}`;
-      destinationDiv.className = 'destination';
-      
-      const destinationText = document.createElement("span");
-      destinationText.textContent = destination;
-      
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
-      deleteButton.className = "destination-btn delete-btn";
-      deleteButton.addEventListener("click", function () {
-          deleteDestination(id);
-      });
-
-      const updateButton = document.createElement("button");
-      updateButton.textContent = "Update";
-      updateButton.className = "destination-btn update-btn";
-      updateButton.addEventListener("click", function () {
-          const newDestination = prompt("Update the destination:", destination);
-          if (newDestination) {
-              updateDestination(id, newDestination);
-              destinationText.textContent = newDestination;
-          }
-      });
-
-      destinationDiv.appendChild(destinationText);
-      destinationDiv.appendChild(updateButton);
-      destinationDiv.appendChild(deleteButton);
-      contentDiv.appendChild(destinationDiv);
-  }
-
-  // Event listener for the form submission
-  const form = document.getElementById("vacation-form");
-  form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const destinationInput = e.target.querySelector("input[type='text']");
-      postDestination(destinationInput.value);
-      destinationInput.value = ""; // clear the input after submitting
-  });
-
-  // Fetch and display the existing destinations when the page loads
-  getDestinations();
-
+    }
+    
+    function postCountry(name) {
+        fetch("/api/vacation", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name }),
+        })
+        .then(parseJSON)
+        .then((data) => {
+            addCountryToContent(data.country_id, name);
+        })
+        .catch((error) => console.error("Error:", error.message));
+    }
+  
+    function updateCountry(id, newName) {
+        fetch(`/api/vacation/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: newName }),
+        })
+        .catch((error) => console.error("Error:", error));
+    }
+  
+    function deleteCountry(id) {
+        fetch(`/api/vacation/${id}`, {
+            method: "DELETE",
+        })
+        .then(() => {
+            const elementToDelete = document.getElementById(`country-${id}`);
+            elementToDelete.remove();
+        })
+        .catch((error) => console.error("Error:", error));
+    }
+  
+    function addCountryToContent(id, name) {
+        const contentDiv = document.getElementById("itinerary-content");
+    
+        const countryDiv = document.createElement("div");
+        countryDiv.id = `country-${id}`;
+        countryDiv.className = "country";
+    
+        const countryText = document.createElement("span");
+        countryText.textContent = name;
+    
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "country-btn delete-btn";
+        deleteButton.addEventListener("click", function () {
+            deleteCountry(id);
+        });
+    
+        const updateButton = document.createElement("button");
+        updateButton.textContent = "Update";
+        updateButton.className = "country-btn update-btn";
+        updateButton.addEventListener("click", function () {
+            const newName = prompt("Update the country name:", name);
+            if (newName) {
+                updateCountry(id, newName);
+                countryText.textContent = newName;
+            }
+        });
+    
+        countryDiv.appendChild(countryText);
+        countryDiv.appendChild(updateButton);
+        countryDiv.appendChild(deleteButton);
+        contentDiv.appendChild(countryDiv);
+    }
+  
+    function getCountries() {
+        fetch("/api/vacation")
+        .then(parseJSON)
+        .then((data) => {
+            data.forEach((item) => {
+                addCountryToContent(item.country_id, item.name);
+            });
+        })
+        .catch((error) => console.error("Error:", error.message));
+    }
+  
+    // Event listener for the form submission
+    const form = document.getElementById("vacation-form");
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const countryInput = e.target.querySelector("input[type='text']");
+        postCountry(countryInput.value);
+        countryInput.value = ""; // clear the input after submitting
+    });
+  
+    // Call the getDestinations function to fetch and display destinations on page load
+    getCountries();
 });
+  
