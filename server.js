@@ -1,6 +1,6 @@
 require('dotenv').config();
 const cors = require('cors'); 
-const PORT = process.env.SERVER_PORT || 5432;
+const PORT = process.env.SERVER_PORT;
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -21,13 +21,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Static files
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'about.html')));
+app.get('/about', (req, res) => res.sendFile(path.join(__dirname, 'about.html')));
 app.get('/style.css', (req, res) => res.sendFile(path.join(__dirname, 'style.css')));
 app.get('/script.js', (req, res) => res.sendFile(path.join(__dirname, 'script.js')));
 app.get('/tropical.png', (req, res) => res.sendFile(path.join(__dirname, 'tropical.png')));
 
 // API routes
-app.post('/api/vacation/:id', addCountry);
+app.post('/api/vacation', addCountry);
 app.get('/api/vacation/:id', getCountry);
 app.put('/api/vacation/:id', updateCountry);
 app.delete('/api/vacation/:id', deleteCountry);
